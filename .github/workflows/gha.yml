@@ -15,8 +15,8 @@ jobs:
         with:
           dotnet-version: '5.x'
       - name: Restore
-        run: dotnet restore --project ./CleanArchMvc/CleanArchMvc.WebUI/CleanArchMvc.WebUI
+        run: dotnet restore ./CleanArchMvc/CleanArchMvc.WebUI/CleanArchMvc.WebUI.csproj
       - name: Build
-        run: dotnet build --project ./CleanArchMvc/CleanArchMvc.WebUI/CleanArchMvc.WebUI
+        run: dotnet build ./CleanArchMvc/
       - name: Test
-        run: dotnet test --project ./CleanArchMvc/CleanArchMvc.Domain.Tests/CleanArchMvc.Domain.Tests
+        run: dotnet test ./CleanArchMvc/CleanArchMvc.Domain.Tests/CleanArchMvc.Domain.Tests.csproj
