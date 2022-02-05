@@ -1,0 +1,22 @@
+name: Build and Test .NET 5
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup .NET 5
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '5.x'
+      - name: Restore
+        run: dotnet restore --project ./CleanArchMvc/CleanArchMvc.WebUI/CleanArchMvc.WebUI
+      - name: Build
+        run: dotnet build --project ./CleanArchMvc/CleanArchMvc.WebUI/CleanArchMvc.WebUI
+      - name: Test
+        run: dotnet test --project ./CleanArchMvc/CleanArchMvc.Domain.Tests/CleanArchMvc.Domain.Tests
